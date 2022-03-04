@@ -1,38 +1,52 @@
-import React, { useState, Fragment } from 'react'
-import { Article, Segment } from 'xueyan-react-markdown'
-import Playground from 'xueyan-react-playground'
-import { Switch } from 'xueyan-react-ellipsis'
-
-const MARK1 = `
-## xueyan-react-ellipsis
-
-\`xueyan-react-ellipsis\` is a react component.  
-
-## Usage
-`
-
-const code1 = `
-import React, { useState } from 'react'
-import Switch from 'xueyan-react-ellipsis'
-
-export default function Example() {
-  const [state, setState] = useState<boolean>(false)
-  return (
-    <Fragment>
-      <span>switch: </span>
-      <Switch value={state} onChange={setState} />
-    </Fragment>
-  )
-}
-`
+import React from 'react'
+import { Ellipsis } from 'xueyan-react-ellipsis'
 
 export default function Main() {
   return (
-    <Article>
-      <Segment>{MARK1}</Segment>
-      <Playground scope={{ React, useState, Fragment, Switch }}>
-        {code1}
-      </Playground>
-    </Article>
+    <div style={{
+      width: 300,
+      backgroundColor: '#ccc',
+      resize: 'both'
+    }}>
+      <div>默认</div>
+      <Ellipsis content="这是溢出后的提示">
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <br/>
+      <div>width 100</div>
+      <Ellipsis width={100}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <br/>
+      <div>width 400</div>
+      <Ellipsis width={400}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <hr/>
+      <div>length 20</div>
+      <Ellipsis maxLength={20}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <br/>
+      <div>length 100</div>
+      <Ellipsis maxLength={100}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <hr/>
+      <div>lines 2</div>
+      <Ellipsis maxLine={2}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <br/>
+      <div>lines 2 length 20</div>
+      <Ellipsis maxLine={2} maxLength={20}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+      <br/>
+      <div>lines 2 width 100</div>
+      <Ellipsis maxLine={2} width={100}>
+        这是一段文字，用于演示省略功能。this is a segment text for demo.
+      </Ellipsis>
+    </div>
   )
 }

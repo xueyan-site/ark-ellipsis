@@ -1,16 +1,22 @@
 {
   "name": "xueyan-react-ellipsis",
   "version": "1.0.0",
-  "author": "xueyan-site <yang@xueyan.site>",
-  "license": "MIT",
-  "description": "react package",
+  "author": "xueyan-site <xueyan@xueyan.site>",
+  "license": "LGPL-3.0",
+  "description": "react ellipsis component",
   "main": "dist/node",
   "types": "dist/def",
   "module": "dist/web",
-  "keywords": [],
+  "keywords": [
+    "ellipsis",
+    "react",
+    "xueyan",
+    "component",
+    "typescript"
+  ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/xueyan-site/xueyan-react-ellipsis.git"
   },
   "files": [
     "dist/**/*"
@@ -20,7 +26,8 @@
     "build": "xt build"
   },
   "dependencies": {
-    "@babel/runtime": "^7.12.0"
+    "@babel/runtime": "^7.12.0",
+    "xueyan-react-popover": "^1.0.2"
   },
   "peerDependencies": {
     "classnames": "^2.3.0",

@@ -1,0 +1,16 @@
+.ellipsis {
+  width: 100%;
+  max-width: max-content;
+}
+.single {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.multiple {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
