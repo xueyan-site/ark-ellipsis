@@ -5,23 +5,21 @@ import { BubblePopover, PopoverRef, BubblePopoverProps } from 'xueyan-react-popo
 import { useStateRef } from './hooks'
 import styles from './ellipsis.scss'
 
-interface PartBubblePopoverProps extends Omit<
-  BubblePopoverProps,
-  | 'value'
-  | 'onChange'
-  | 'trigger'
-  | 'width'
-> {}
-
 export type EllipsisLengthMode = 'char' | 'byte'
 
 export type EllipsisListener = (ellipsis: boolean) => void
 
 export interface EllipsisRef extends PopoverRef {}
 
-export interface EllipsisProps extends PartBubblePopoverProps {
-  /** popover宽度值 */
-  popoverWidth?: React.CSSProperties['width']
+export interface EllipsisProps {
+  /** popover组件props */
+  popover?: BubblePopoverProps
+  /** 类名 */
+  className?: string
+  /** 样式 */
+  style?: React.CSSProperties
+  /** 子节点 */
+  children?: React.ReactNode
   /** 宽度限制（默认为容器宽度） */
   width?: React.CSSProperties['width']
   /** 行数限制（默认为1） */
@@ -42,15 +40,14 @@ function getOverflowString(
   maxLength: number,
   lengthMode: EllipsisLengthMode
 ) {
-  let i = 0
-  let len = 0
-  let br = false
   const byteMode = lengthMode === 'byte'
-  for (; i < str.length; i++) {
+  let br = false
+  let i = 0
+  for (let len = 0; i < str.length; i++) {
     if (byteMode) {
       len = len + (str.charCodeAt(i) <= 128 ? 1 : 2)
     } else {
-      len = len +1
+      len = len + 1
     }
     if (len > maxLength) {
       br = true
@@ -60,31 +57,38 @@ function getOverflowString(
   if (!br) {
     return [str, '']
   }
-  const ri = Math.max(i - 3, 0)
-  return [
-    str.slice(0, ri),
-    str.slice(ri)
-  ]
+  if (i <= 1) {
+    return ['', str]
+  }
+  if (str.charCodeAt(i-1) > 128 || str.charCodeAt(i-2) > 128) {
+    i = i - 2
+  } else {
+    i = i - 3
+  }
+  i = Math.max(i, 0)
+  return br ? [
+    str.slice(0, i),
+    str.slice(i)
+  ] : [str, '']
 }
 
 export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
+  popover,
   className,
+  style,
   children,
-  content,
-  disabled,
-  popoverWidth,
   width,
   maxLine,
   maxLength,
   lengthMode,
   onEllipsis,
-  ...props
 }, ref) => {
+  const _popover = popover || {}
   const innerRef = useRef<HTMLDivElement>(null)
   const [ell, ellRef, setEll] = useStateRef<boolean>(false)
 
   useLayoutEffect(() => {
-    if (!innerRef.current || disabled) {
+    if (!innerRef.current || _popover.disabled) {
       return
     }
     const checkEllipsis = debounce(() => {
@@ -103,7 +107,7 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
     const resizeObserver = new ResizeObserver(checkEllipsis)
     resizeObserver.observe(innerRef.current)
     return () => resizeObserver.disconnect()
-  }, [innerRef.current, disabled])
+  }, [innerRef.current, _popover.disabled])
 
   let tip: boolean = ell
   let node: React.ReactNode = children
@@ -118,13 +122,13 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
     <BubblePopover
       zIndex={100}
       trigger="hover"
-      {...props}
+      contentStyle={{ maxWidth: '300px' }}
+      disabled={!tip}
+      content={children}
+      {..._popover}
       ref={ref}
-      content={content || children}
-      disabled={disabled || !tip}
       className={cn(styles.ellipsis, className)}
-      style={{ width }}
-      width={popoverWidth}
+      style={{ width, ...style }}
     >
       <div 
         ref={innerRef}

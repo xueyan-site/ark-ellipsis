@@ -9,7 +9,7 @@ export default function Main() {
       resize: 'both'
     }}>
       <div>默认</div>
-      <Ellipsis content="这是溢出后的提示">
+      <Ellipsis popover={{ content: '这是溢出后的提示' }}>
         这是一段文字，用于演示省略功能。this is a segment text for demo.
       </Ellipsis>
       <br/>
@@ -23,8 +23,8 @@ export default function Main() {
         这是一段文字，用于演示省略功能。this is a segment text for demo.
       </Ellipsis>
       <hr/>
-      <div>length 20</div>
-      <Ellipsis maxLength={20}>
+      <div>length 4</div>
+      <Ellipsis maxLength={4}>
         这是一段文字，用于演示省略功能。this is a segment text for demo.
       </Ellipsis>
       <br/>
