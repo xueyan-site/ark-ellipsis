@@ -117,23 +117,25 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
     node = data[0] + (data[1] ? '...' : '')
   }
 
-  const multiple = (maxLine && maxLine > 1)
   return (
     <BubblePopover
       zIndex={100}
       trigger="hover"
-      contentStyle={{ maxWidth: '300px' }}
       disabled={!tip}
       content={children}
       {..._popover}
       ref={ref}
       className={cn(styles.ellipsis, className)}
       style={{ width, ...style }}
+      contentStyle={{ 
+        maxWidth: '300px',
+        ..._popover.style
+      }}
     >
       <div 
         ref={innerRef}
-        className={multiple ? styles.multiple : styles.single}
-        style={{ WebkitLineClamp: multiple ? maxLine : undefined }}
+        className={styles.multiple}
+        style={{ WebkitLineClamp: maxLine }}
       >
         {node}
       </div>
