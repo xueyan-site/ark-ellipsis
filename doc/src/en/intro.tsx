@@ -6,7 +6,7 @@ const BOX_STYLE: React.CSSProperties = {
   resize: 'both',
   marginBottom: '12px',
   backgroundColor: 'var(--back1)',
-  border: '1px solid var(--alpha4)',
+  border: '1px solid var(--alpha5)',
   color: 'var(--font)'
 }
 
@@ -25,7 +25,13 @@ export default function Main() {
       <div style={BOX_STYLE}>
         <div style={TITLE_STYLE}>默认</div>
         <div style={CONT_STYLE}>
-          <Ellipsis popover={{ content: '这是溢出后的提示' }}>
+          <Ellipsis 
+            popover={{ content: '这是溢出后的提示' }} 
+            style={{ 
+              lineHeight: '100px', 
+              background: 'var(--back2)' 
+            }}
+          >
             这是一段文字，用于演示省略功能。this is a segment text for demo.
           </Ellipsis>
         </div>

@@ -83,6 +83,7 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
   lengthMode,
   onEllipsis,
 }, ref) => {
+  const _maxLine = maxLine || 1
   const _popover = popover || {}
   const innerRef = useRef<HTMLDivElement>(null)
   const [ell, ellRef, setEll] = useStateRef<boolean>(false)
@@ -121,11 +122,12 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
     <BubblePopover
       zIndex={100}
       trigger="hover"
+      placement="center"
       disabled={!tip}
       content={children}
       {..._popover}
       ref={ref}
-      className={cn(styles.ellipsis, className)}
+      className={cn(styles.xrellipsis, className)}
       style={{ width, ...style }}
       contentStyle={{ 
         maxWidth: '300px',
@@ -134,8 +136,13 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
     >
       <div 
         ref={innerRef}
-        className={styles.multiple}
-        style={{ WebkitLineClamp: maxLine }}
+        className={cn(
+          styles.inner, 
+          _maxLine > 1 ? styles.multiple : styles.single
+        )}
+        style={{
+          WebkitLineClamp: _maxLine > 1 ? _maxLine : undefined 
+        }}
       >
         {node}
       </div>
