@@ -123,7 +123,7 @@ export const Ellipsis = forwardRef<EllipsisRef, EllipsisProps>(({
       zIndex={100}
       trigger="hover"
       placement="center"
-      disabled={!tip}
+      disabled={_popover.disabled || !tip}
       content={children}
       {..._popover}
       ref={ref}
