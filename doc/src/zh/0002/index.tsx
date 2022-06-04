@@ -17,7 +17,7 @@ type Ellipsis = React.ForwardRefExoticComponent<
 
 const CODE1 = `
 import React from 'react'
-import { Popover } from 'xueyan-react-popover'
+import { Ellipsis } from 'xueyan-react-ellipsis'
 
 export default function Example() {
   return (
