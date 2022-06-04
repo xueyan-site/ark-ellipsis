@@ -26,7 +26,7 @@ export interface EllipsisProps {
   maxLine?: number
   /** 长度限制（默认为无，必须大于3才能生效） */
   maxLength?: number
-  /** 长度限制类型（默认为char）（byte类型将中文当两个字符算） */
+  /** 长度统计模式（默认为 char，设置为 byte 会将中文当两个字符算） */
   lengthMode?: EllipsisLengthMode
   /** 内容溢出时 */
   onEllipsis?: EllipsisListener
