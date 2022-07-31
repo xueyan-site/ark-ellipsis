@@ -1,7 +1,7 @@
 import React from 'react'
 import { Article, Segment } from 'xueyan-react-markdown'
 import { Playground } from 'xueyan-react-playground'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 const MARK1 = `
 溢出省略组件
@@ -17,7 +17,7 @@ type Ellipsis = React.ForwardRefExoticComponent<
 
 const CODE1 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (

@@ -1,8 +1,8 @@
 {
-  "name": "xueyan-react-ellipsis-doc",
+  "name": "ark-ellipsis-doc",
   "version": "1.0.0",
   "author": "xueyan-site <xueyan@xueyan.site>",
-  "description": "xueyan-react-ellipsis document",
+  "description": "ark-ellipsis document",
   "private": true,
   "scripts": {
     "start": "xt start",

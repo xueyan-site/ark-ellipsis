@@ -8,7 +8,7 @@ module.exports = {
     'ast': 'pub/ast',
     'com': 'pub/com',
     'utl': 'pub/utl',
-    'xueyan-react-ellipsis': '../src',
+    'ark-ellipsis': '../src',
     'xueyan-react-style': '../node_modules/xueyan-react-style'
   },
   serve: {

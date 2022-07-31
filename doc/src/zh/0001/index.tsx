@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Article, Segment } from 'xueyan-react-markdown'
 import { Playground } from 'xueyan-react-playground'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 const MARK1 = `
 溢出省略组件库，用于实现文本的溢出效果。
@@ -9,7 +9,7 @@ const MARK1 = `
 
 const code1 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (
@@ -34,7 +34,7 @@ export default function Example() {
 
 const code2 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (
@@ -47,7 +47,7 @@ export default function Example() {
 
 const code3 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (
@@ -60,7 +60,7 @@ export default function Example() {
 
 const code4 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (
@@ -75,7 +75,7 @@ export default function Example() {
 
 const code5 = `
 import React from 'react'
-import { Ellipsis } from 'xueyan-react-ellipsis'
+import { Ellipsis } from 'ark-ellipsis'
 
 export default function Example() {
   return (

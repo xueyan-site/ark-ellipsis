@@ -1,7 +1,7 @@
 import React, { forwardRef, useLayoutEffect, useRef } from 'react'
 import cn from 'classnames'
 import { debounce } from 'lodash'
-import { BubblePopover, PopoverRef, BubblePopoverProps } from 'xueyan-react-popover'
+import { BubblePopover, PopoverRef, BubblePopoverProps } from 'ark-popover'
 import { useStateRef } from './hooks'
 import styles from './ellipsis.scss'
 
