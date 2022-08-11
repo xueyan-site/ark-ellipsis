@@ -1,6 +1,6 @@
 import React from 'react'
-import { Article, Segment } from 'xueyan-react-markdown'
-import { Playground } from 'xueyan-react-playground'
+import { Article, Segment } from 'ark-markdown'
+import { Playground } from 'ark-playground'
 import { Ellipsis } from 'ark-ellipsis'
 
 const MARK1 = `
@@ -34,7 +34,7 @@ export default function Example() {
 const MARK2 = `
 ## EllipsisRef
 
-继承 [PopoverRef](/xueyan-react-popover?doc=0002#popoverref) 全部属性
+继承 [PopoverRef](/ark-popover?doc=0002#popoverref) 全部属性
 
 ## EllipsisProps
 
